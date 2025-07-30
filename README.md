@@ -121,9 +121,3 @@ It includes:
   ```
   POST /api/users/orderCart
   ```
-
----
-
-## Postman Collection
-
-You can use Postman to test all endpoints. If needed, export a Postman collection and include it here.
