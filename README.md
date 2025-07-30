@@ -1,4 +1,6 @@
 # FSS-PROJ
+## Creators
+This project was made by Liam Israel and Yahav Alon.
 
 # Node.js Starter Project
 
@@ -125,9 +127,3 @@ It includes:
 ## Postman Collection
 
 You can use Postman to test all endpoints. If needed, export a Postman collection and include it here.
-
----
-
-## License
-
-This project is provided as-is for educational and development use.
