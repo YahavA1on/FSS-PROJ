@@ -207,17 +207,19 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
 
 - **Update Existing Item**
   ```
+  - **Update Existing Item**
+  ```
   POST /api/admin/updateItem
   Body:
   {
-    "name": "New Item",
-    "update": {
-      "price": 30.0,
-      "quantity": 15,
-      "description": "Updated description"
-    }
+    "name": "Existing Item",
+    "description": "Updated description",
+    "category": "Updated category",
+    "price": 30.0,
+    "stock": 15
   }
   ```
+
 
 - **Delete an Item**
   ```
