@@ -13,6 +13,7 @@ It includes:
 - Shopping cart management
 - Item listing and querying
 - Simple session handling
+- Admin-only user and item management
 - RESTful API structure
 
 ---
@@ -116,7 +117,7 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
   POST /api/users/addToCart
   Body:
   {
-    "itemId": "item_id_here"
+    "name": "item name here"
   }
   ```
 
@@ -130,7 +131,7 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
   POST /api/users/removeFromCart
   Body:
   {
-    "itemId": "item_id_here"
+    "name": "item name here"
   }
   ```
 
@@ -143,3 +144,77 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
   ```
   POST /api/users/orderCart
   ```
+
+---
+
+### Admin Endpoints
+
+> These routes require the user to be logged in with `isAdmin = true`.
+
+#### User Management
+
+- **Get All Users**
+  ```
+  GET /api/admin/getAllUsers
+  ```
+
+- **Get a Specific User**
+  ```
+  POST /api/admin/getUser
+  Body:
+  {
+    "username": "targetUsername"
+  }
+  ```
+
+- **Delete a Specific User**
+  ```
+  DELETE /api/admin/deleteUser
+  Body:
+  {
+    "username": "targetUsername"
+  }
+  ```
+
+- **Delete All Users**
+  ```
+  DELETE /api/admin/deleteAllUsers
+  ```
+
+#### Item Management
+
+- **Add New Item**
+  ```
+  POST /api/admin/addItem
+  Body:
+  {
+    "name": "New Item",
+    "price": 25.0,
+    "category": "Electronics",
+    "description": "High quality item"
+  }
+  ```
+
+- **Update Existing Item**
+  ```
+  POST /api/admin/updateItem
+  Body:
+  {
+    "name": "New Item",
+    "update": {
+      "price": 30.0,
+      "description": "Updated description"
+    }
+  }
+  ```
+
+- **Delete an Item**
+  ```
+  DELETE /api/admin/deleteItem
+  Body:
+  {
+    "name": "item name here"
+  }
+  ```
+
+---
