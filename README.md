@@ -18,7 +18,7 @@ It includes:
 
 > **Note 1**: The `isAdmin` flag is **not assigned automatically**. If you want a user to have admin privileges, you must manually set `isAdmin: true` for that user in the database.
 
-> **Note 2**: The default MongoDB user credentials for connecting to the database are:
+> **Note 2**: The default MongoDB user credentials are:
 ```
 Username: Admin  
 Password: Admin1234
@@ -199,7 +199,7 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
   {
     "name": "New Item",
     "price": 25.0,
-    "quantity": 10,
+    "stock": 10,
     "category": "Electronics",
     "description": "High quality item"
   }
@@ -207,19 +207,16 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
 
 - **Update Existing Item**
   ```
-  - **Update Existing Item**
-  ```
   POST /api/admin/updateItem
   Body:
   {
-    "name": "Existing Item",
+    "name": "New Item",
     "description": "Updated description",
     "category": "Updated category",
     "price": 30.0,
     "stock": 15
   }
   ```
-
 
 - **Delete an Item**
   ```
