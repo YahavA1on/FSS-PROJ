@@ -1,4 +1,5 @@
 # FSS-PROJ
+
 ## Creators
 This project was made by Liam Israel and Yahav Alon.
 
@@ -57,20 +58,30 @@ It includes:
 
 ---
 
-## API endpoints
+## API endpoints (JSON-based)
+
+All API endpoints accept and return JSON. Use the `Content-Type: application/json` header for requests.
 
 ### Authentication
 
 - **Register**
   ```
   POST /api/users/register
-  Body: { "username": "johndoe", "password": "123456" }
+  Body:
+  {
+    "username": "johndoe",
+    "password": "123456"
+  }
   ```
 
 - **Login**
   ```
   POST /api/users/login
-  Body: { "username": "johndoe", "password": "123456" }
+  Body:
+  {
+    "username": "johndoe",
+    "password": "123456"
+  }
   ```
 
 - **Logout**
@@ -89,7 +100,11 @@ It includes:
 
 - **Get Item by Name**
   ```
-  GET /api/users/getItemByName?name=itemName
+  POST /api/users/getItemByName
+  Body:
+  {
+    "name": "item name here"
+  }
   ```
 
 ---
@@ -98,7 +113,11 @@ It includes:
 
 - **Add to Cart**
   ```
-  GET /api/users/addToCart?item=itemId
+  POST /api/users/addToCart
+  Body:
+  {
+    "itemId": "item_id_here"
+  }
   ```
 
 - **View Cart**
@@ -109,7 +128,10 @@ It includes:
 - **Remove from Cart**
   ```
   POST /api/users/removeFromCart
-  Body: { "itemId": "item_id_here" }
+  Body:
+  {
+    "itemId": "item_id_here"
+  }
   ```
 
 - **Clear Cart**
