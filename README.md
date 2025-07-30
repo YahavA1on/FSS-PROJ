@@ -16,6 +16,14 @@ It includes:
 - Admin-only user and item management
 - RESTful API structure
 
+> **Note 1**: The `isAdmin` flag is **not assigned automatically**. If you want a user to have admin privileges, you must manually set `isAdmin: true` for that user in the database.
+
+> **Note 2**: The default MongoDB user credentials for connecting to the database are:
+```
+Username: Admin  
+Password: Admin1234
+```
+
 ---
 
 ## Project structure
@@ -53,7 +61,7 @@ It includes:
    Create a `.env` file in the root with the following keys:
    ```
    PORT=3000
-   DB_URI=mongodb://localhost:27017/your-db
+   DB_URI=mongodb://Admin:Admin1234@localhost:27017/your-db
    SESSION_SECRET=yourSecretKey
    ```
 
@@ -117,7 +125,8 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
   POST /api/users/addToCart
   Body:
   {
-    "name": "item name here"
+    "name": "item name here",
+    "quantity": 2
   }
   ```
 
@@ -190,6 +199,7 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
   {
     "name": "New Item",
     "price": 25.0,
+    "quantity": 10,
     "category": "Electronics",
     "description": "High quality item"
   }
@@ -203,6 +213,7 @@ All API endpoints accept and return JSON. Use the `Content-Type: application/jso
     "name": "New Item",
     "update": {
       "price": 30.0,
+      "quantity": 15,
       "description": "Updated description"
     }
   }
